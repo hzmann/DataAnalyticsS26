@@ -63,7 +63,7 @@ boxplot(B1.complete, B2.complete, names  =c("BER.old", "BER.new"))
 ### Histograms ###
 
 # histogram for B1.complete
-x <- seq(0, 101, 5)
+x <- seq(0, 101, 5) # min is 0, max is 100
 hist(B1.complete, x, prob=TRUE)
 lines(density(B1.complete, bw="SJ"))
 x1 <- seq(0, 101, 1)
@@ -71,7 +71,7 @@ d1 <- dnorm(x1, mean=mean(B1.complete), sd=sd(B1.complete), log=FALSE)
 lines(x1, d1)
 
 # histogram for B2.complete
-x <- seq(0, 101, 5)
+x <- seq(0, 101, 5) # min is 0, max is 100
 hist(B2.complete, x, prob=TRUE)
 lines(density(B2.complete, bw="SJ"))
 x1 <- seq(0, 101, 1)
@@ -100,4 +100,5 @@ ad.test(B2.complete)
 ### Test for identical distributions ###
 ks.test(B1.complete, B2.complete) # result: p = 1 --> no evidence of difference in the distributions
 wilcox.test(B1.complete, B2.complete) # result: p > 0.5 --> the median BER score didn't change between old and new
+
 
